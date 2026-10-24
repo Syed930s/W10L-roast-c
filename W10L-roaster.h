@@ -1,3 +1,20 @@
+/*
+ * w10l-roast-c  -  single-file roast generator (stb-style header library)
+ * FOR FUN ONLY.
+ *
+ * Usage:
+ *   In exactly ONE .c file:   #define W10L_ROAST_IMPLEMENTATION
+ *                             #include "w10l-roast-c.h"
+ *   Build the demo CLI:       cc -DW10L_ROAST_DEMO -x c w10l-roast-c.h -o w10l-roast
+ *
+ * API:
+ *   void w10l_roast_seed(unsigned long long seed);   // 0 = time-based
+ *   int  w10l_roast(char *buf, size_t n, const char *target, int level, int profane);
+ *        level   : 0 = mild, 1 = spicy, 2 = nuclear
+ *        profane : 0 = clean, 1 = swears allowed
+ *        returns : length written (excluding NUL), or -1 on bad args
+ *   const char *w10l_roast_version(void);
+ */
 
 #ifndef W10L_ROAST_H
 #define W10L_ROAST_H
@@ -6,13 +23,13 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+    #endif
 
-void        w10l_roast_seed(unsigned long long seed);
-int         w10l_roast(char *buf, size_t n, const char *target, int level, int profane);
-const char *w10l_roast_version(void);
+    void        w10l_roast_seed(unsigned long long seed);
+    int         w10l_roast(char *buf, size_t n, const char *target, int level, int profane);
+    const char *w10l_roast_version(void);
 
-#ifdef __cplusplus
+    #ifdef __cplusplus
 }
 #endif
 
@@ -72,7 +89,11 @@ static const char *w10l__core_mild[] = {
     "your whole identity is a version number Microsoft already abandoned.",
     "the only thing you've ever optimised is how fast you lose arguments.",
     "your tech knowledge peaked at 'have you tried restarting it'.",
-    "you're running on legacy hardware, legacy software and legacy brain cells."
+    "you're running on legacy hardware, legacy software and legacy brain cells.",
+    "your uptime is impressive and so is your complete lack of updates.",
+    "you treat 'it works on my machine' like a legal defence.",
+    "the only thing you've ever installed successfully is your own ego.",
+    "you read 'End of Support' and somehow took it as a personal challenge."
 };
 
 /* spicy cores (clean but sharper) */
@@ -84,7 +105,11 @@ static const char *w10l__core_spicy[] = {
     "you've got the confidence of a Linux user and the skills of a Windows ME speedrunner.",
     "nobody asked for your opinion, and the telemetry agrees.",
     "you're proof that 'Run as administrator' doesn't make you one.",
-    "you've been thoroughly benchmarked and the results are 'deprecated'."
+    "you've been thoroughly benchmarked and the results are 'deprecated'.",
+    "you argue like a driver written in 2009: outdated, unstable and nobody wants to touch you.",
+    "your reputation has more red flags than a Defender scan of a keygen folder.",
+    "you've been banned from so many servers that Discord should issue you a loyalty card.",
+    "every update you skip is one more reason the whole scene stopped listening."
 };
 
 /* nuclear cores (clean-ish, devastating) */
@@ -94,7 +119,10 @@ static const char *w10l__core_nuke[] = {
     "you're the human equivalent of a 'Your device ran into a problem' screen.",
     "the community didn't cancel you, it just ran a disk cleanup and you were the temp files.",
     "you hold the world record for fastest speedrun from 'hot take' to 'ratio'.",
-    "you're the reason Microsoft has a 'Sorry, something went wrong' dialog."
+    "you're the reason Microsoft has a 'Sorry, something went wrong' dialog.",
+    "you're a memory leak in the community and everyone's been waiting for the process to end.",
+    "you ran 'sfc /scannow' on your personality and it found corruption it couldn't repair.",
+    "your takes have been rolled back so many times they're basically in safe mode."
 };
 
 /* profane cores */
@@ -108,7 +136,11 @@ static const char *w10l__core_swear[] = {
     "you fuck up so consistently that Microsoft should list you as a known issue.",
     "you're such a clown that the whole wintuber scene already put you on ignore, you pathetic twat.",
     "go touch grass, you shitty little noob, before you crash another conversation.",
-    "your brain runs on a single-core Celeron and even that thread is deadlocked."
+    "your brain runs on a single-core Celeron and even that thread is deadlocked.",
+    "you're a dead-OS-defending, update-dodging, shit-posting waste of bandwidth.",
+    "you've got the charisma of a CMD window and none of the functionality, you useless prick.",
+    "you're so fucking outdated even the Wayback Machine skips your pages.",
+    "shut the fuck up and go patch your vulnerabilities, starting with the ones between your ears."
 };
 
 /* closers */
