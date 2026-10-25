@@ -1,20 +1,3 @@
-/*
- * w10l-roast-c  -  single-file roast generator (stb-style header library)
- * FOR FUN ONLY.
- *
- * Usage:
- *   In exactly ONE .c file:   #define W10L_ROAST_IMPLEMENTATION
- *                             #include "w10l-roast-c.h"
- *   Build the demo CLI:       cc -DW10L_ROAST_DEMO -x c w10l-roast-c.h -o w10l-roast
- *
- * API:
- *   void w10l_roast_seed(unsigned long long seed);   // 0 = time-based
- *   int  w10l_roast(char *buf, size_t n, const char *target, int level, int profane);
- *        level   : 0 = mild, 1 = spicy, 2 = nuclear
- *        profane : 0 = clean, 1 = swears allowed
- *        returns : length written (excluding NUL), or -1 on bad args
- *   const char *w10l_roast_version(void);
- */
 
 #ifndef W10L_ROAST_H
 #define W10L_ROAST_H
